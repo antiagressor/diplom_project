@@ -1,4 +1,4 @@
-
+# ----- Test GitHub Action -----
 
 name: CI-CD-Pipeline
 env:
@@ -13,11 +13,11 @@ on:
 
 jobs:
   my-build:
-    runs-on: ubuntu-latest
+     runs-on: ubuntu-latest
 
-    steps:
-      - name: Git clone our repo
-      - uses: actions/checkout@v1
+     steps:
+     - name: Git clone our repo
+       uses: actions/checkout@v1
 
-      - name: Create ZIP Deployment
-        run : zip -r ${{ env.DEPLOY_PACKAGE_NAME }} ./ -x *.git*
+     - name: Create ZIP Deployment
+       run : zip -r ${{ env.DEPLOY_PACKAGE_NAME }} ./ -x *.git*
