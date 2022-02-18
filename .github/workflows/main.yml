@@ -1,0 +1,23 @@
+
+
+name: CI-CD-Pipeline
+env:
+  APPLICATION_NAME    : "MyApp"
+  ENVIROMENT_NAME     : "MyApp-env"
+  DEPLOY_PACKAGE_NAME : "my_app_${{ github.sha }}.zip"
+
+on:
+  push:
+    branches: [ master ]
+
+
+jobs:
+  my-build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Git clone our repo
+      - uses: actions/checkout@v1
+
+      - name: Create ZIP Deployment
+        run: zip -r ${{ env.DEPLOY_PACKAGE_NAME }} ./ -x *.git*
