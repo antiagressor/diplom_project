@@ -21,3 +21,6 @@ jobs:
 
      - name: Create ZIP Deployment
        run : zip -r ${{ env.DEPLOY_PACKAGE_NAME }} ./ -x *.git*
+       
+     - name: Print Message for CI status
+       run : echo "CI Pipeline is successfull!" 
